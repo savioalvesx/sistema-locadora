@@ -1,4 +1,4 @@
-package br.com.locadora.model.util;
+package br.com.locadora.util;
 
 import java.util.InputMismatchException;
 

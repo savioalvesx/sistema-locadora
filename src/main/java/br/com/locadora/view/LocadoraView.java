@@ -25,7 +25,6 @@ public class LocadoraView {
             System.out.println("2. Devolver um veículo");
             System.out.println("3. Cadastrar novo veículo");
             System.out.println("4. Cadastrar novo cliente");
-            System.out.println("--- LISTAGENS ---");
             System.out.println("5. Listar veículos disponíveis");
             System.out.println("6. Listar veículos alugados");
             System.out.println("7. Listar clientes");
@@ -57,13 +56,14 @@ public class LocadoraView {
     }
 
     private void alugarVeiculo() {
+        System.out.println("\n--- Aluguel de Veículo ---");
+        System.out.print("Digite o CPF do cliente: ");
+        String cpf = scanner.nextLine();
+        System.out.print("Digite a placa do veículo: ");
+        String placa = scanner.nextLine();
 
-    }
-    private void cadastrarVeiculo() {
-
-    }
-    private void cadastrarCliente() {
-
+        String resultado = controller.alugarVeiculo(placa, cpf);
+        System.out.println(resultado);
     }
 
     private void devolverVeiculo() {
@@ -71,6 +71,32 @@ public class LocadoraView {
         System.out.print("Digite a placa do veículo a ser devolvido: ");
         String placa = scanner.nextLine();
         String resultado = controller.devolverVeiculo(placa);
+        System.out.println(resultado);
+    }
+
+    private void cadastrarVeiculo() {
+        System.out.println("\n--- Cadastro de Veículo ---");
+        System.out.print("Digite a placa: ");
+        String placa = scanner.nextLine();
+        System.out.print("Digite a marca: ");
+        String marca = scanner.nextLine();
+        System.out.print("Digite o modelo: ");
+        String modelo = scanner.nextLine();
+        System.out.print("Digite o tipo (carro/moto): ");
+        String tipo = scanner.nextLine();
+
+        String resultado = controller.cadastrarVeiculo(placa, marca, modelo, tipo);
+        System.out.println(resultado);
+    }
+
+    private void cadastrarCliente() {
+        System.out.println("\n--- Cadastro de Cliente ---");
+        System.out.print("Digite o CPF do cliente: ");
+        String cpf = scanner.nextLine();
+        System.out.print("Digite o nome completo do cliente: ");
+        String nome = scanner.nextLine();
+
+        String resultado = controller.cadastrarCliente(cpf, nome);
         System.out.println(resultado);
     }
 

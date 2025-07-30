@@ -1,8 +1,8 @@
 package br.com.locadora.service;
 
 import br.com.locadora.model.entity.Cliente;
-import br.com.locadora.model.repository.ClienteRepository; // Depende da INTERFACE
-import br.com.locadora.model.util.ValidadorCPF;
+import br.com.locadora.model.repository.ClienteRepository;
+import br.com.locadora.util.ValidadorCPF;
 import java.util.List;
 
 public class ClienteServiceImpl implements ClienteService {
@@ -18,7 +18,7 @@ public class ClienteServiceImpl implements ClienteService {
             throw new IllegalArgumentException("Formato de CPF inválido.");
         }
         if (clienteRepository.buscarPorCpf(cpf).isPresent()) {
-            throw new IllegalArgumentException("Já existe um cliente cadastrado com o CPF " + cpf);
+            throw new IllegalArgumentException("Já existe um cliente cadastrado com o CPF." + cpf);
         }
         Cliente novoCliente = new Cliente(cpf, nome);
         return clienteRepository.salvar(novoCliente);

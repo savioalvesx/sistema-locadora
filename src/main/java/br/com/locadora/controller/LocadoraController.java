@@ -5,7 +5,6 @@ import br.com.locadora.model.entity.Cliente;
 import br.com.locadora.model.entity.Veiculo;
 import br.com.locadora.service.AluguelService;
 import br.com.locadora.service.ClienteService;
-import br.com.locadora.service.ClienteServiceImpl;
 import br.com.locadora.service.VeiculoService;
 
 import java.util.List;
@@ -40,7 +39,7 @@ public class LocadoraController {
     public String cadastrarCliente(String cpf, String nome) {
         try {
             Cliente cliente = clienteService.cadastrarCliente(cpf, nome);
-            return "SUCESSO: Cliente '" + cliente.getNome() + "' cadastrado com o CPF " + cliente.getCpf();
+            return String.format("SUCESSO: Cliente %s cadastrado com o CPF %s", cliente.getNome(), cliente.getCpf());
         } catch (Exception e) {
             return "ERRO: " + e.getMessage();
         }
@@ -53,7 +52,7 @@ public class LocadoraController {
     public String devolverVeiculo(String placa) {
         try {
             var valorAPagar = aluguelService.devolverVeiculo(placa);
-            return String.format("SUCESSO: Veículo de placa %s devolvido. Valor a pagar: R$ %.2f", placa, valorAPagar);
+            return String.format("SUCESSO: Veículo de placa '%s' devolvido. Valor a pagar: R$ %.2f", placa, valorAPagar);
         } catch (Exception e) {
             return "ERRO: " + e.getMessage();
         }
