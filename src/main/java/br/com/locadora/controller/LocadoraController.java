@@ -39,7 +39,7 @@ public class LocadoraController {
     public String cadastrarCliente(String cpf, String nome) {
         try {
             Cliente cliente = clienteService.cadastrarCliente(cpf, nome);
-            return String.format("SUCESSO: Cliente %s cadastrado com o CPF %s", cliente.getNome(), cliente.getCpf());
+            return String.format("SUCESSO: Cliente com CPF %s (%s) cadastrado com sucesso!", cliente.getCpf(), cliente.getNome());
         } catch (Exception e) {
             return "ERRO: " + e.getMessage();
         }
