@@ -53,7 +53,7 @@ public abstract class Veiculo {
        return "\nMarca: " + marca
        + "\nModelo: " + modelo
        + "\nPlaca: " + placa
-       + "Disponível: " + (disponivel ? "Sim" : "Não");
+       + "\nDisponível: " + (disponivel ? "Sim" : "Não");
     }
 
     @Override
